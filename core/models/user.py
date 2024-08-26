@@ -45,12 +45,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     foto = models.ForeignKey(
         Image,
+        related_name="+",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
         default=None,
     )
-    
+
     objects = UserManager()
 
     USERNAME_FIELD = "email"
