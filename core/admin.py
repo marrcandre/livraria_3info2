@@ -11,6 +11,7 @@ from core.models import (
     Categoria,
     Compra,
     Editora,
+    ItensCompra,
     Livro,
     User,
 )
@@ -90,3 +91,4 @@ class LivroAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 admin.site.register(Compra)
+admin.site.register(ItensCompra)
