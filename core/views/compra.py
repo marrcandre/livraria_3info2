@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
 from core.models import Compra
-from core.serializers import CompraSerializer, CriarEditarCompraSerializer
+from core.serializers import CompraSerializer, CriarEditarCompraSerializer, ListarCompraSerializer
 
 
 class CompraViewSet(ModelViewSet):
@@ -11,6 +11,8 @@ class CompraViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.action in ("create", "update"):
             return CriarEditarCompraSerializer
+        elif self.action == "list":
+            return ListarCompraSerializer
         return CompraSerializer
 
     def get_queryset(self):
